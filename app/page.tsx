@@ -169,6 +169,12 @@ export default function Home() {
             >
               Contact Me →
             </a>
+            <a
+              href="SandeepSawhneyResume.pdf"
+              className="ctaButton"
+            >
+              My Resume →
+            </a>
           </div>
         </div>
       </section>
