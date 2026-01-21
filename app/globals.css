@@ -460,17 +460,15 @@ html {
   padding: 60px 0 70px 0;
 }
 
+
+
+
 .hackathonLine {
   height: 2px;
-  width: 95vw;
-
+  width: 100%;
   background: rgba(255, 255, 255, 0.85);
-
-  /* full-bleed without horizontal scroll */
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
+
 
 
 .hackathonHeader {
@@ -487,14 +485,21 @@ html {
   color: rgba(255, 255, 255, 0.95);
 }
 
-/* FULL-WIDTH MARQUEE (breaks out of centered layouts) */
+/* FULL-WIDTH MARQUEE (mobile-safe, no right-shift) */
 .marquee {
   width: 100vw;
-  margin-left: calc(50% - 50vw); /* forces full viewport width */
   overflow: hidden;
   position: relative;
   padding-top: 26px;
+  padding-bottom: 32px;
 }
+
+@media (max-width: 700px) {
+  .marquee {
+    padding-top: 18px;
+  }
+}
+
 
 /* subtle edge fade so it feels premium */
 .marquee::before,
