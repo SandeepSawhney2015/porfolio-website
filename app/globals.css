@@ -465,9 +465,13 @@ html {
 
 .hackathonLine {
   height: 2px;
-  width: 100%;
   background: rgba(255, 255, 255, 0.85);
+
+  /* full-bleed */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
+
 
 
 
@@ -487,18 +491,16 @@ html {
 
 /* FULL-WIDTH MARQUEE (mobile-safe, no right-shift) */
 .marquee {
+  width: 100%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   width: 100vw;
   overflow: hidden;
-  position: relative;
-  padding-top: 26px;
-  padding-bottom: 32px;
 }
 
-@media (max-width: 700px) {
-  .marquee {
-    padding-top: 18px;
-  }
-}
 
 
 /* subtle edge fade so it feels premium */
