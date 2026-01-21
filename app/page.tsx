@@ -100,7 +100,6 @@ export default function Home() {
       </section>
 
       <section className="hackathonSection">
-        <div className="hackathonLine" />
 
         <div className="hackathonHeader">
           <h2 className="hackathonTitle">Hackathons!</h2>
@@ -133,7 +132,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="hackathonLine" />
       </section>
 
 
