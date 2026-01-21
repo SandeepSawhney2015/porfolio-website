@@ -2,6 +2,7 @@ import "./globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import ScrollHint from "@/components/ScrollHint";
 
 
 const jakarta = Plus_Jakarta_Sans({
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={jakarta.className}>
         <NavBar />
         {children}
+        <ScrollHint idleMs={9000} />
         <Footer />
       </body>
     </html>
