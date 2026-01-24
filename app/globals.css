@@ -1194,3 +1194,30 @@ body {
   }
 }
 
+/* Mobile: stop sections from feeling like they have huge voids */
+@media (max-width: 700px) {
+  .hackathonSection {
+    padding: 34px 0 44px 0;  /* was huge */
+  }
+
+  .aboutSection {
+    padding: 44px 18px;      /* was 80px 24px */
+  }
+
+  .projectsSection {
+    padding: 44px 18px 28px 18px; /* reduce the top padding */
+  }
+
+  .footer {
+    margin-top: 56px; /* was 120px */
+  }
+}
+
+.topbar {
+  padding-top: env(safe-area-inset-top);
+}
+
+body {
+  padding-top: calc(64px + env(safe-area-inset-top));
+}
+

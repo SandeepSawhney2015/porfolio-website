@@ -12,7 +12,7 @@ export default function Home() {
   const [step, setStep] = useState(0);
 
   return (
-    <main className="landing">
+    <main>
       <section id="home" className="landing sectionAnchor">
         <div className="landingStack">
           <h1 className="landingName">
