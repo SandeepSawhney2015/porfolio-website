@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import ScrollHint from "@/components/ScrollHint";
@@ -26,6 +27,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <ScrollHint idleMs={9000} />
+        <Analytics/>
         <Footer />
       </body>
     </html>
