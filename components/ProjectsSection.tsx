@@ -9,7 +9,10 @@ type Project = {
   contribution: string; // what you worked on / collaborative note
   updated: string; // e.g. "Jan 2026"
   href: string; // github/demo link
-  imageSrc: string; // /projects/xyz.jpg
+  imageSrc: string; // /projects/xyz.png or .jpg
+
+  // OPTIONAL: image that crossfades in when hovering the IMAGE only
+  hoverImageSrc?: string; // e.g. "/explain_heatmap.png" (from /public)
 };
 
 function ProjectCard({ project }: { project: Project }) {
@@ -73,13 +76,32 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="projectImageWrap">
-        <Image
-          src={project.imageSrc}
-          alt={`${project.title} preview`}
-          width={420}
-          height={260}
-          className="projectImage"
-        />
+        {project.hoverImageSrc ? (
+          <div className="projectImageSwap" aria-label={`${project.title} image preview`}>
+            <Image
+              src={project.imageSrc}
+              alt={`${project.title} preview`}
+              fill
+              sizes="(max-width: 900px) 100vw, 420px"
+              className="projectImage projectImageBase"
+            />
+            <Image
+              src={project.hoverImageSrc}
+              alt={`${project.title} heatmap preview`}
+              fill
+              sizes="(max-width: 900px) 100vw, 420px"
+              className="projectImage projectImageHover"
+            />
+          </div>
+        ) : (
+          <Image
+            src={project.imageSrc}
+            alt={`${project.title} preview`}
+            width={420}
+            height={260}
+            className="projectImage"
+          />
+        )}
       </div>
     </a>
   );
@@ -88,6 +110,17 @@ function ProjectCard({ project }: { project: Project }) {
 export default function ProjectsSection() {
   const projects = useMemo<Project[]>(
     () => [
+      {
+        title: "Pokemon Card Identifier",
+        description:
+          "Taking in a test image, this pipeline is designed to pick at which card from its database is most similar to the card the user parsed in. It is ready for deployment to send packages, this will be developed soon. This uses an available testing dataset of over 13k pokemon cards.",
+        contribution: "Entire project.",
+        updated: "Jan 2026",
+        href: "https://github.com/SandeepSawhney2015/Pokemon-Card-Identifier",
+        imageSrc: "/projects/explain_overlay.png",
+        // NOTE: this is in /public (root), per your message
+        hoverImageSrc: "/projects/explain_heatmap.png",
+      },
       {
         title: "MatchedIn",
         description:
@@ -107,16 +140,6 @@ export default function ProjectsSection() {
         updated: "Dec 2025",
         href: "https://github.com/SandeepSawhney2015/MonkeyesInParis",
         imageSrc: "/projects/MonkeyesInParis.png",
-      },
-      {
-        title: "Real Estate Price Predictor",
-        description:
-          "My first exposure to AI where I used an AI-like technique to predict real estate markets.",
-        contribution:
-          "Entire project.",
-        updated: "May 2024",
-        href: "https://github.com/SandeepSawhney2015/Real_Estate_Price_Predictor",
-        imageSrc: "/projects/realEstatePricePredictor.png",
       },
     ],
     []

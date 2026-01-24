@@ -1068,5 +1068,100 @@ img {
   }
 }
 
+/* --- Pokemon special image blend --- */
+.projectImageSwap {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+}
 
+.projectImageBase,
+.projectImageHover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* smooth crossfade */
+  transition: opacity 320ms ease;
+  will-change: opacity;
+}
+
+/* base visible by default */
+.projectImageBase {
+  opacity: 1;
+}
+
+/* hover hidden by default */
+.projectImageHover {
+  opacity: 0;
+}
+
+/* ONLY when hovering the IMAGE area */
+.projectImageSwap:hover .projectImageBase {
+  opacity: 0;
+}
+
+.projectImageSwap:hover .projectImageHover {
+  opacity: 1;
+}
+
+/* keep the wrapper height consistent with your Image sizes */
+.projectImageSwap::before {
+  content: "";
+  display: block;
+  aspect-ratio: 420 / 260;
+}
+
+.projectImageSwap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 420 / 260;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.projectImageBase,
+.projectImageHover {
+  opacity: 1;
+  transition: opacity 320ms ease;
+  will-change: opacity;
+}
+
+.projectImageHover { opacity: 0; }
+
+.projectImageSwap:hover .projectImageBase { opacity: 0; }
+.projectImageSwap:hover .projectImageHover { opacity: 1; }
+
+/* Ensure the right-side image area never collapses */
+.projectImageWrap {
+  width: min(420px, 100%);
+}
+
+/* Swap container must define its own height */
+.projectImageSwap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 63 / 88; /* Pokémon card ratio */
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Overlay layers (only applies to the special Pokemon swap images) */
+.projectImageBase,
+.projectImageHover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 320ms ease;
+  will-change: opacity;
+}
+
+.projectImageHover { opacity: 0; }
+.projectImageSwap:hover .projectImageBase { opacity: 0; }
+.projectImageSwap:hover .projectImageHover { opacity: 1; }
 
